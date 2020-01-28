@@ -7,7 +7,7 @@ version = {}
 with open("pod_export/version.py") as fp:
     exec(fp.read(), version)
 
-requires = ["pod-base>=1,<2"]
+requires = ["pod-base>=1.0.3,<2"]
 
 setup(
     name="pod-export",

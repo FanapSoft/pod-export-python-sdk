@@ -14,7 +14,7 @@ class PodExport(PodBase):
     def __init__(self, api_token, token_issuer="1", server_type="sandbox", config_path=None,
                  sc_api_key="", sc_voucher_hash=None):
         here = path.abspath(path.dirname(__file__))
-        self._services_file_path = path.join(here, "services.ini")
+        self._services_file_path = path.join(here, "services.json")
         super(PodExport, self).__init__(api_token, token_issuer, server_type, config_path, sc_api_key, sc_voucher_hash,
                                         path.join(here, "json_schema.json"))
 
@@ -32,9 +32,8 @@ class PodExport(PodBase):
 
         self._validate(params, "getExportList")
 
-        return self._request.call(sc_product_id=super(PodExport, self).
-                                  _get_sc_product_id("/nzh/biz/getExportList"), params=params,
-                                  headers=self._get_headers(), **kwargs)
+        return self._request.call(super(PodExport, self)._get_sc_product_settings("/nzh/biz/getExportList"),
+                                  params=params, headers=self._get_headers(), **kwargs)
 
     def get_export(self, request_id, **kwargs):
         """
