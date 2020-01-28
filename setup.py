@@ -20,7 +20,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     keywords=["POD", "export", "download export", "export invoice", "export delegation", "pod sdk"],
-    packages=find_packages(exclude=("test", "examples")),
+    packages=find_packages(exclude=("tests", "examples")),
     install_requires=requires,
     zip_safe=False,
     classifiers=[
